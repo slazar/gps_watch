@@ -5,10 +5,10 @@ A gps synced clock/watch on the LinkIt ONE
 
 # Hardware
 
-* [Hackpack from Twilio Signal 2016 conference](http://hackpack.cc/)
-** [Seeed Studio LinkIt-One board and antennas](http://www.seeedstudio.com/item_detail.html?p_id=2017) 
-** [Lumi 128 x 64 OLED screen](http://www.seeedstudio.com/item_detail.html?p_id=781)
-** 3.7v 1050maH lithium ion battery
+- [Hackpack from Twilio Signal 2016 conference](http://hackpack.cc/)
+  - [Seeed Studio LinkIt-One board and antennas](http://www.seeedstudio.com/item_detail.html?p_id=2017)
+  - [Lumi 128 x 64 OLED screen](http://www.seeedstudio.com/item_detail.html?p_id=781)
+  - 3.7v 1050maH lithium ion battery
 
 # Features
 
@@ -21,8 +21,8 @@ Battery and charging state will show as icons in the bottom left hand corner of 
 # Credits
 
 Code borrowed from:
-* [GPS-decimal_degrees.ino](https://github.com/MediaTek-Labs/linkIt-ONE-additional-example/blob/master/GPS-decimal_degrees/GPS-decimal_degrees.ino)
-* [deltainnovativelabs](https://deltainnovativelabs.wordpress.com/2015/01/15/linkit-one-rtc-example-code/)
+- [GPS-decimal_degrees.ino](https://github.com/MediaTek-Labs/linkIt-ONE-additional-example/blob/master/GPS-decimal_degrees/GPS-decimal_degrees.ino)
+- [deltainnovativelabs](https://deltainnovativelabs.wordpress.com/2015/01/15/linkit-one-rtc-example-code/)
 
 Big thanks to [Twilio Signal 2016 Conference](https://www.twilio.com/signal) for the sweet hackpack give away!
 
