@@ -18,6 +18,11 @@ If you run it on battery, it will cycle the gps on and off to save power. Adjust
 
 Battery and charging state will show as icons in the bottom left hand corner of the screen.
 
+# Libraries
+
+- [Seeed OLED Display](https://github.com/Seeed-Studio/OLED_Display_128X64)
+- [MediaTek LinkIt ONE SDK](http://labs.mediatek.com/site/global/developer_tools/mediatek_linkit/sdk_intro/index.gsp)
+
 # Credits
 
 Code borrowed from:
