@@ -7,8 +7,7 @@
 #include "WatchIcons.h"
 
 datetimeInfo t;
-unsigned int rtc;
-unsigned int gpsLastChange=0;
+unsigned int seconds;
 boolean gpsOn = false;
 gpsSentenceInfoStruct info;
 char format[60];
@@ -21,13 +20,11 @@ void setup() {
   SeeedOled.clearDisplay();
   LGPS.powerOn(); //turn on gps for first sync
   gpsOn = true;
-  LDateTime.getRtc(&gpsLastChange);
 }
 
 void printTime() {
   char time_buffer[17];
   LDateTime.getTime(&t);
-  LDateTime.getRtc(&rtc);
   sprintf(time_buffer,"%02d:%02d:%02d GMT",t.hour,t.min,t.sec);
   SeeedOled.setTextXY(0,0);
   SeeedOled.putString(time_buffer);
@@ -185,18 +182,17 @@ void displayIcons()
 void loop() {
   printTime();
   displayIcons();
-
   if (gpsOn)
   {
     LGPS.getData(&info);
     printGPGGA((char*)info.GPGGA,format);
-    if (LBattery.isCharging() == false)
+    if (seconds > gpsOnPeriod)
     {
-      if (rtc > gpsLastChange + gpsOnPeriod)
+      seconds = 0;
+      if (LBattery.isCharging() == false)
       {
         LGPS.powerOff();
         gpsOn = false;
-        gpsLastChange = rtc;
         SeeedOled.setTextXY(4,0);
         SeeedOled.putString("GPS powered off ");
       }
@@ -204,22 +200,14 @@ void loop() {
   }
   else
   {
-    if (LBattery.isCharging() == false)
+    if (seconds > gpsOffPeriod)
     {
-      if (rtc > gpsLastChange + gpsOffPeriod)
-      {
-        LGPS.powerOn();
-        gpsOn = true;
-        gpsLastChange = rtc;
-      }
-    }
-    else
-    {
+      seconds = 0;
       LGPS.powerOn();
       gpsOn = true;
-      gpsLastChange = rtc;
     }
   }
+  seconds++;
   
   delay(1000);
 }
